@@ -1,177 +1,297 @@
+
 *{
-    margin: 0;
     padding: 0;
-    box-sizing: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.cadastrando{
-    height: 100%;
+
+:root{
+    --primary-color: #ff6600;
+    --secundary-color: #FFF1CC;
+    --shadow-color: #CCC;
+    --text-color: #ffffff;
 }
-.logo{
-    transform: rotate(180deg);
-    width: 23%;
-}
-nav{
+
+body{
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    background-color: #e43c2c!important;
+    flex-direction: column;
+    font-family: 'karla', sans-serif;
+    position:relative;
 }
-.caixa{
-    padding: 5%;
-    margin-top: 20px!important;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+
+header{
+    background-color: #E53F2E;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    box-shadow: 0 1px 2px var(--shadow-color);
 }
-#myBtn{
-    padding: 2%;
-    background-color: #e43c2c;
+
+.header-title{
     color: white;
-    margin-bottom: 8px;
-    border: none;
+    font-size: 2rem;
 }
-table{
-    gap: 10px 20px!important;
+
+main{
+    flex-grow: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    margin: 5vh auto;
+    padding: 50px;
+    box-shadow: 2px 2px 10px var(--shadow-color);
+    gap: 20px;
 }
-th{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center!important;
-    justify-content: center;
-    background-color: #e43c2c;
-    color: aliceblue;
-}
-footer{}
-/* -----------------MODAL------------------ */
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    transform: translateY(350px);
-    width: 450px; /* Full width */
-    height: 450px; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-        position: fixed;
-        margin:auto;
-        padding-left: 10px;
-        width: 80%;
-       
-        -webkit-animation-name: animatetop;
-        -webkit-animation-duration: 0.4s;
-        animation-name: animatetop;
-        animation-duration: 0.4s
-      }
-
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+footer{
+    width:100;
+    text-align: center;
+    font-weight: 200;
+    font-style: italic;
+    padding: 20px;
     color: black;
-    text-decoration: none;
+}
+
+@media (max-width:480px){
+    header{
+        position:fixed;
+        width:100%;
+    }
+    .header-title{
+        font-size: 1.5rem;
+    }
+
+    main{
+        padding: 0;
+        margin: 20px 0 0 0;
+        width:100%;
+        box-shadow: none;
+    }
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: -60px;
+    margin-left: 50px;
+}
+
+
+/* ===================MODAL====================== */
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal.active{
+    opacity: 1;
+    z-index: 1;
+}
+
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width: 50vw;
+    margin: 15vh auto;
+    padding-bottom: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 10px black;
+}
+
+.modal-header{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+}
+
+
+
+.modal-close{
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    user-select: none;
     cursor: pointer;
-  }
-  .modal.active{
-      opacity: 1;
-      z-index: 1;
-  }
-  
-  h2{
-    color: #e43c2c!important;
-  }
-  .modal-header{
-      display: flex;
-      position: relative;
-      justify-content: center;
-      height: 40px;
-      line-height: 40px;
-      font-size: 1rem;
-  }
-  .modal-close{
-      position: absolute;
-      right: 0;
-      display: block;
-      width: 40px;
-      height: 40px;
-      text-align: center;
-      user-select: none;
-      cursor: pointer;
-  }
-  
-  .modal-close:hover{
-      background-color: #FF4949;
-      color: white;
-  }
-  
-  .modal-form{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 0 20px;
-  }
-  
-  .modal-field{
-      width: calc(50% - 10px);
-      height: 40px;
-      outline-style: none;
-      border-style: none;
-      box-shadow: 0 0 2px black;
-      padding: 0 10px;
-      font-size:1rem;
-  }
-  
-  .modal-field:focus{
-      border: 2px solid var(--primary-color);
-      box-shadow: 0 0 3px var(--primary-color);
-  }
-  
-  
-  .modal-footer{
-      background-color: inherit;
-      text-align: right;
-      padding-left: 50px!important;
-  }
-  
-  @media (max-width:480px){
-      .modal{
-          top:100%;
-          transition: all 1s ease;
-      }
-      .modal.active{
-          top:0;
-      }
-      .modal-content{
-          margin:0;
-          width:100%;
-          position:fixed;
-      }
-      .modal-field{
-          width:100%;
-      }
-  }
-  
-  h2{
-      color: white;
-  }
-  
-  
+}
+
+.modal-close:hover{
+    background-color: #FF4949;
+    color: white;
+}
+
+.modal-form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.modal-field{
+    width: calc(50% - 10px);
+    height: 40px;
+    outline-style: none;
+    border-style: none;
+    box-shadow: 0 0 2px black;
+    padding: 0 10px;
+    font-size:1rem;
+}
+
+.modal-field:focus{
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 3px var(--primary-color);
+}
+
+
+.modal-footer{
+    background-color: inherit;
+    text-align: right;
+    padding: 0 20px;
+}
+
+@media (max-width:480px){
+    .modal{
+        top:100%;
+        transition: all 1s ease;
+    }
+    .modal.active{
+        top:0;
+    }
+    .modal-content{
+        margin:0;
+        width:100%;
+        position:fixed;
+    }
+    .modal-field{
+        width:100%;
+    }
+}
+
+h2{
+    color: white;
+}
+
+
+
+/* =================== BOTÃO ====================== */
+
+.button{
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow .6s ease;
+}
+
+.button.blue{
+    background-color: #E53F2E;
+}
+
+button.green{
+    background-color: rgb(36, 160, 83);
+}
+
+button.red{
+    background-color: rgb(209, 101, 101);
+}
+
+.button:hover{
+    box-shadow: inset 200px 0 0 #00000055;
+}
+
+@media(max-width:480px){
+    .button.mobile{
+        color:transparent;
+        font-size:0;
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        position:fixed;
+        top: 90vh;
+        left: 80vw;
+    }
+    .button.mobile::before{
+        content: "+";
+        color:black;
+        font-size:2rem;
+        width:100%;
+        height:100%;
+    }
+}
+
+/* ==================TABELA================== */
+
+
+.records{
+    width: 100%;
+    user-select: none;
+    text-align: left;
+    color: black;
+}
+
+.records th{
+    height: 50px;
+    background-color: #E53F2E;
+    padding-left: 20px;
+    font-size: 1.2rem;  
+    color: white;  
+}
+.records td{
+    height: 50px;
+    padding-left: 20px;
+}
+
+.records th:last-child,
+.records td:last-child{
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+}
+
+.records tr:hover{
+    background-color: var(--secundary-color);
+}
+
+@media(max-width:480px){
+    .records{
+        border-spacing: 5px;
+    }
+    .records thead{
+        display:none;
+    }
+    .records tr{
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    .records td:not(:first-child){
+        display:flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .records td{
+        margin:10px 0;
+    }
+
+    .records tr:hover{
+        background-color: inherit;
+    }
+}
